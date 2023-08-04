@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from apps.departamentos.models import Departamento
 from apps.empresa.models import Empresa
+from django.urls import reverse
 
 
 class Funcionario(models.Model):
@@ -12,3 +13,6 @@ class Funcionario(models.Model):
     
     def __str__(self) :
         return self.nome
+    
+    def get_absolute_url(self):
+        return reverse ('list_funcionarios')
